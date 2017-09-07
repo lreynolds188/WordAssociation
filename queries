@@ -1,0 +1,49 @@
+1.
+*********************
+SELECT VEH_Make, VEH_Model, VEH_RegoNum, VEH_SeatCapacity FROM vehicle 
+WHERE VEH_Availability = 'Y' 
+ORDER BY VEH_SeatCapacity
+*********************
+
+2.
+*********************
+SELECT * FROM location 
+WHERE StreetName LIKE '% %' AND 
+	  StreetName LIKE '_%_%_%d%'
+*********************
+
+3.
+*********************
+SELECT OfficialFirstName, OfficialLastName, country.CountryName, language.LanguageName FROM official 
+JOIN country ON official.CountryCode = country.CountryCode 
+JOIN language ON official.LanguageCode = language.LanguageCode 
+ORDER BY OfficialFirstName, OfficialLastName
+*********************
+
+4.
+*********************
+SELECT MAX(MR_Date) AS "MostRecentMr_Date", vehicle.VEH_RegoNum, vehicle.VEH_Make, vehicle.VEH_Model FROM maintenance_repair 
+JOIN vehicle ON maintenance_repair.VIN = vehicle.VIN
+*********************
+
+5.
+*********************
+
+*********************
+
+6.
+*********************
+
+*********************
+
+7.
+*********************
+SELECT official.OfficialFirstName, official.OfficialLastName, official_role.RoleDescription FROM official 
+JOIN official_role on official.OfficialRole = official_role.RoleID
+WHERE official.OfficialID NOT IN (SELECT OfficialID FROM trip)
+*********************
+
+8.
+*********************
+
+*********************
